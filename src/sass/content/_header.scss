@@ -1,0 +1,145 @@
+#header {
+	background: $color_white;
+	line-height: 22px;
+	box-sizing: border-box;
+	padding: 14px 0 0;
+	height: 100px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	box-shadow: 3px 0 7px rgba(0,0,0,0.15);
+	z-index: 99;
+	.nav {
+		max-width: 864px;
+		margin: 0 auto;
+		display: flex;
+		Justify-content: space-between;
+		align-items: center;
+		.slicknav_menu {
+			display: none;
+		}
+		ul {
+			overflow: hidden;
+			li {
+				float: left;
+				margin: 0 29px 0 0;
+				a {
+					color: $color_gray3;
+					text-decoration: none;
+					font-weight: 600;
+					display: block;
+					position: relative;
+					transition: 0.5s;
+					&:after {
+						position: absolute;
+						content: '';
+						width: 30px;
+						height: 1px;
+						background: $color_blue4;
+						left: 50%;
+						bottom: 0;
+						margin-left: -15px;
+						opacity: 0;
+						transition: 0.5s;
+					}
+					&.active,
+					&:hover {
+						color: $color_blue4;
+						&:after {
+							position: absolute;
+							content: '';
+							width: 30px;
+							height: 1px;							
+							left: 50%;
+							bottom: 0;
+							margin-left: -15px;
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+		.nav-left {
+			order: 1;					
+		}
+		.nav-right {
+			order: 3;
+			float: right;
+			margin: 0 36px 0 0;
+		}
+		.logo {
+			margin: 1px 29px 0 0;
+			display: block;			
+			width: 68px;
+			height: 68px;
+			@include background(logo,png,no-repeat);
+			order: 2;
+			text-indent: -9999px;
+		}
+	}
+}
+@include media-990 {
+	#header {
+		padding: 14px 10px 0;
+		.nav {
+			.logo {
+				margin: 0;
+			}
+			.nav-right {
+				margin: 0;
+				li:last-child {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+@include media-767 {
+	#header {
+		.nav {
+			.slicknav_menu {
+				display: block;
+			}
+			display: block;
+			&>ul {
+				display: none;
+			}
+			.logo {
+				float: left;
+			}
+			.slicknav_btn {
+				float: right;
+				margin: 25px 0 0;
+				.slicknav_icon-bar {
+					display: block;
+					width: 50px;
+					height: 2px;
+					background: $color_dark;
+					margin: 0 0 10px;
+				}
+			}
+			.slicknav_nav {
+				position: absolute;
+				left: 0;
+				top: 100%;
+				background: $color_white;
+				width: 100%;
+				box-sizing: border-box;
+				padding: 15px 0 30px;
+				box-shadow: 0 10px 10px rgba(0,0,0,0.15);
+				ul {
+					float: none;
+					text-align: center;
+					li {
+						float: none;
+						margin: 0 0 10px;
+					}
+				}
+				.logo {
+					display: none;
+				}
+			}
+		}
+	}
+}
